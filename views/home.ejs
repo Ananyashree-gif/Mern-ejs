@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | <%= fullname %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main class="page">
+        <section class="card profile-card">
+
+            <div class="profile-banner" aria-hidden="true"></div>
+
+            <div class="profile-body">
+
+                <% if (hasProfilePicture) { %>
+                    <img
+                        src="/profile-picture"
+                        alt="Profile picture of <%= fullname %>"
+                        class="avatar"
+                    >
+                <% } else { %>
+                    <div class="avatar avatar-initials" role="img" aria-label="Default profile picture">
+                        <%= initials %>
+                    </div>
+                <% } %>
+
+                <h1 class="profile-name"><%= fullname %></h1>
+                <p class="profile-welcome">
+                    You have successfully logged in. Welcome to your account.
+                </p>
+
+                <dl class="details">
+                    <div class="detail-item">
+                        <dt class="detail-label">Full name</dt>
+                        <dd class="detail-value"><%= fullname %></dd>
+                    </div>
+
+                    <div class="detail-item">
+                        <dt class="detail-label">Email address</dt>
+                        <dd class="detail-value"><%= email %></dd>
+                    </div>
+
+                    <div class="detail-item">
+                        <dt class="detail-label">Contact number</dt>
+                        <dd class="detail-value"><%= contact %></dd>
+                    </div>
+
+                    <div class="detail-item">
+                        <dt class="detail-label">Registered on</dt>
+                        <dd class="detail-value"><%= registeredOn %></dd>
+                    </div>
+                </dl>
+
+                <form action="/logout" method="POST" class="profile-actions">
+                    <button type="submit" class="btn btn-outline">Log out</button>
+                </form>
+
+            </div>
+        </section>
+    </main>
+</body>
+</html>

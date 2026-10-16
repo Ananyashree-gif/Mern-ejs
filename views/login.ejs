@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main class="page">
+        <section class="card">
+
+            <header class="card-header">
+                <p class="brand">Member Portal</p>
+                <h1 class="card-title">Welcome back</h1>
+                <p class="card-subtitle">Log in to view your account.</p>
+            </header>
+
+            <% if (error) { %>
+                <div class="alert alert-error" role="alert"><%= error %></div>
+            <% } %>
+
+            <form action="/login" method="POST" class="form">
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-input"
+                        placeholder="name@example.com"
+                        value="<%= values.email %>"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-input"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn btn-primary">Log in</button>
+            </form>
+
+            <p class="card-footer">
+                Do not have an account?
+                <a href="/register" class="link">Register</a>
+            </p>
+
+        </section>
+    </main>
+</body>
+</html>
